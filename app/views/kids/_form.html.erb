@@ -20,6 +20,22 @@
     <%= form.label :grade %>
     <%= form.text_field :grade, id: :kid_grade %>
   </div>
+  
+  <!--copied in and adapted from the mousy app-->
+  <div class="field">
+      <%= form.text_field :parent_id, value: current_parent.id %>
+  </div>
+  
+  <!--copied in adapted from doggie daycare lesson notes-->
+    <%= form.simple_fields_for(:families) do |family_fields| %>
+      <%= family_fields.association :parent_id %>
+     
+     
+      <%# Only show the destroy checkbox if a record is already saved %>
+      <!--< % if custody_fields.object.persisted? %>-->
+      <!--  < %= custody_fields.input :_destroy, as: :boolean %>-->
+      <!--< % end %>-->
+    <% end %>
 
   <div class="actions">
     <%= form.submit %>

@@ -15,10 +15,14 @@ class KidsController < ApplicationController
   # GET /kids/new
   def new
     @kid = Kid.new
+    #below adapted from doggie daycare
+    #@kid.families.build
   end
 
   # GET /kids/1/edit
   def edit
+        #adapted from doggie daycare
+    @kid.families.build
   end
 
   # POST /kids
@@ -69,6 +73,8 @@ class KidsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def kid_params
-      params.require(:kid).permit(:name, :grade)
+      #below was original. second was adpated from doggie daycare
+      #params.require(:kid).permit(:name, :grade)
+      params.require(:kid).permit(:name, :grade, families_attributes: [:id, parent_id, :_destroy])
     end
 end

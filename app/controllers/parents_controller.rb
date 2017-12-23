@@ -1,6 +1,7 @@
 class ParentsController < ApplicationController
   before_action :authenticate_parent!
-  before_action :set_parent, only: [:show, :edit, :update, :destroy]
+  #before_action :set_parent, only: [:show, :edit, :update, :destroy]
+  before_action :set_parent, only: [:edit, :update, :destroy]
 
   # GET /parents
   # GET /parents.json
@@ -11,6 +12,9 @@ class ParentsController < ApplicationController
   # GET /parents/1
   # GET /parents/1.json
   def show
+    #@parent = Parent.find(params[:id])
+    @parent = Parent.find(current_parent.id)
+    @kids = Kid.all
   end
 
   # GET /parents/new
@@ -65,7 +69,7 @@ class ParentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_parent
-      @parent = Parent.find(params[:id])
+      @parent = Parent.find(params[:id])    
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

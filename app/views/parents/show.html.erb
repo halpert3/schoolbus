@@ -4,6 +4,36 @@
   <strong>Name:</strong>
   <%= @parent.name %>
 </p>
+<br>
+<p>
+  <strong><%= link_to 'Add a kid', new_kid_path %></strong>
+</p>
+
+<p>
+  All kids for this parent
+</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @kids.each do |kid| %>
+      <tr>
+        <td><%= kid.name %></td>
+        <td><%= kid.grade %></td>
+        <!--<td>< %= link_to 'Show', parent_path(parent) %></td>-->
+        <!--<td>< %= link_to 'Edit', edit_parent_path(parent) %></td>-->
+        <!--<td>< %= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    <% end %>
+      </tbody>
+  </table>
+  
+
+
 
 <%= link_to 'Edit', edit_parent_path(@parent) %> |
 <%= link_to 'Back', parents_path %>

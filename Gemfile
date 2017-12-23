@@ -38,6 +38,7 @@ gem 'bootstrap', '~> 4.0.0.beta.2.1'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'stamp'
+gem 'simple_form'
 
 # -- Text Editing --
 gem 'trix'
